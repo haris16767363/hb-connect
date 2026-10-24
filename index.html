@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101321">
+  <title>HB Connect — Random Video Call</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="logo">HB</div>
+      <div>
+        <h1>HB Connect</h1>
+        <p>Meet the world. No account needed.</p>
+      </div>
+      <span class="live" id="connection">Offline</span>
+    </header>
+
+    <div class="notice">
+      Random video chat. Accept only if you feel comfortable.
+      Never share passwords or financial information.
+    </div>
+
+    <section class="videos">
+      <article class="video-card">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <span class="video-label">Random user</span>
+        <span class="video-placeholder" id="remotePlaceholder">
+          <span>◎</span>
+          <b>Waiting for a connection</b>
+        </span>
+      </article>
+
+      <article class="video-card local-card">
+        <video id="localVideo" autoplay muted playsinline></video>
+        <span class="video-label">You</span>
+      </article>
+    </section>
+
+    <section class="status-panel">
+      <h2 id="status">Ready to meet someone?</h2>
+      <p id="detail">
+        Camera permission is needed before starting.
+      </p>
+    </section>
+
+    <section class="accept-panel hidden" id="acceptPanel">
+      <p>A random user wants to video chat with you.</p>
+      <div class="actions">
+        <button class="primary" id="acceptBtn">Accept call</button>
+        <button class="danger" id="rejectBtn">Decline</button>
+      </div>
+    </section>
+
+    <section class="actions main-actions">
+      <button class="primary" id="findBtn">Find Random User</button>
+      <button class="secondary" id="nextBtn" disabled>Next</button>
+      <button class="danger" id="endBtn" disabled>End call</button>
+    </section>
+
+    <section class="actions controls">
+      <button class="secondary" id="micBtn" disabled>
+        Mic: On
+      </button>
+      <button class="secondary" id="cameraBtn" disabled>
+        Camera: On
+      </button>
+    </section>
+
+    <p class="footer">
+      Be respectful. You can end any call at any time.
+    </p>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
